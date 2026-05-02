@@ -1,0 +1,13 @@
+{
+    "pylint.importStrategy": "fromEnvironment",
+    "editor.renderWhitespace": "trailing",
+    "files.trimTrailingWhitespace": true,
+    "python-envs.defaultEnvManager": "ms-python.python:pipenv",
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
+}
