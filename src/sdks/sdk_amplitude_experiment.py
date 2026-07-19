@@ -1,8 +1,11 @@
 """ Amplitude Experiment SDK benchmark adapter. """
 # https://pypi.org/project/amplitude-experiment/
 
-from sdks.sdk_bench import BenchError, SdkBench
+import os
+
 from amplitude_experiment import Experiment, User
+
+from sdks.sdk_bench import BenchError, SdkBench
 
 class SdkAmplitudeExperiment(SdkBench):
     """ Benchmark adapter for the Experiment Python SDK package. """
@@ -11,7 +14,7 @@ class SdkAmplitudeExperiment(SdkBench):
     display_name = "Experiment Python SDK"
 
     def __init__(self):
-        self.experiment = Experiment.initialize_local("[API_KEY]")
+        self.experiment = Experiment.initialize_local(os.getenv("AMPLITUDE_EXPERIMENT_KEY", "[API_KEY]"))
         self.experiment.start()
 
         self.user = User(

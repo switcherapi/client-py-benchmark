@@ -4,16 +4,18 @@ from __future__ import annotations
 
 import argparse
 import sys
-
 import pyperf
 
+from dotenv import load_dotenv
+from registry import get_adapter_registration, list_adapter_registrations
 from benchmark_core import (
     build_benchmark_stats,
     create_benchmark_case,
     render_summary_table,
     run_benchmark_case,
 )
-from registry import get_adapter_registration, list_adapter_registrations
+
+load_dotenv()
 
 def build_parser():
     """ Create the CLI parser for custom benchmark arguments. """

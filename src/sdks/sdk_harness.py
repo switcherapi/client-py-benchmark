@@ -1,8 +1,11 @@
 """ Harness Feature Flags SDK benchmark adapter. """
 # https://pypi.org/project/harness-featureflags/
 
-from sdks.sdk_bench import BenchError, SdkBench
+import os
+
 from featureflags.client import CfClient, Config, Target
+
+from sdks.sdk_bench import BenchError, SdkBench
 
 class SdkHarness(SdkBench):
     """ Benchmark adapter for the Python SDK For Harness Feature Flags package. """
@@ -11,7 +14,7 @@ class SdkHarness(SdkBench):
     display_name = "Python SDK For Harness Feature Flags"
 
     def __init__(self):
-        self.client = CfClient(sdk_key="[API_KEY]", config=Config(
+        self.client = CfClient(sdk_key=os.getenv("HARNESS_KEY", "[API_KEY]"), config=Config(
             enable_analytics=False,
             enable_stream=True,
             pull_interval=2 * 60 * 1000,  # two min pollInterval

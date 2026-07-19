@@ -1,8 +1,11 @@
 """ Optimizely SDK benchmark adapter. """
 # https://pypi.org/project/optimizely-sdk/
 
-from sdks.sdk_bench import BenchError, SdkBench
+import os
+
 from optimizely import optimizely
+
+from sdks.sdk_bench import BenchError, SdkBench
 
 class SdkOptimizely(SdkBench):
     """ Benchmark adapter for the Optimizely Feature Experimentation package. """
@@ -12,7 +15,7 @@ class SdkOptimizely(SdkBench):
 
     def __init__(self):
         self.optimizely_client = optimizely.Optimizely(
-            sdk_key = "[API_KEY]",
+            sdk_key = os.environ.get("OPTIMIZELY_KEY"),
             skip_json_validation=True,
             logger=None,
             event_processor_options={

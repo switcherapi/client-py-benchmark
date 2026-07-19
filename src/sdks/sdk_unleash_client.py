@@ -1,9 +1,10 @@
 """ Unleash Client SDK benchmark adapter. """
 # https://pypi.org/project/UnleashClient/
 
-from sdks.sdk_bench import BenchError, SdkBench
 from UnleashClient import UnleashClient
 from UnleashClient.cache import FileCache
+
+from sdks.sdk_bench import BenchError, SdkBench
 
 class SdkUnleashClient(SdkBench):
     """ Benchmark adapter for the Unleash SDK for Python package. """

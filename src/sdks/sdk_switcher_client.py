@@ -1,9 +1,11 @@
 """ Switcher Client SDK benchmark adapter. """
 # https://pypi.org/project/switcher-client/
 
+import os
+
+from switcher_client import Client, ContextOptions, LoadSnapshotOptions
+
 from sdks.sdk_bench import BenchError, SdkBench
-from switcher_client import Client, ContextOptions
-from switcher_client.lib.globals.global_snapshot import LoadSnapshotOptions
 
 class SdkSwitcherClient(SdkBench):
     """ Benchmark adapter for the Switcher Client SDK package. """
@@ -15,7 +17,7 @@ class SdkSwitcherClient(SdkBench):
         Client.build_context(
             domain='Switcher API',
             url='https://api.switcherapi.com',
-            api_key="[API_KEY]",
+            api_key=os.getenv("SWITCHER_KEY", "[API_KEY]"),
             component='switcher-client-python',
             options=ContextOptions(
                 local=True,

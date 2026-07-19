@@ -1,7 +1,8 @@
-switcher-client==1.0.0
+switcher-client==1.2.1
 harness-featureflags==1.7.5
 UnleashClient==6.7.0
-optimizely-sdk==5.5.0
-amplitude-experiment==1.11.0
+optimizely-sdk==5.6.0
+amplitude-experiment==1.12.0
 splitio-client==10.6.0
 pyperf==2.10.0
+python-dotenv==1.2.2

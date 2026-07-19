@@ -1,8 +1,9 @@
 """ Split.io Client SDK benchmark adapter. """
 # https://pypi.org/project/splitio-client/
 
-from sdks.sdk_bench import BenchError, SdkBench
 from splitio import get_factory
+
+from sdks.sdk_bench import BenchError, SdkBench
 
 class SdkSplitioClient(SdkBench):
     """ Benchmark adapter for the Split.io SDK for Python package. """
